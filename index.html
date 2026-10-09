@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jelajahi menu makanan dan minuman Blue Haven Cafe.">
+  <title>Blue Haven Cafe | Menu</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="brand">
+      <span class="brand-icon">B</span>
+      <span>BLUE HAVEN<span class="brand-sub">CAFE & KITCHEN</span></span>
+    </a>
+
+    <button class="mobile-toggle" id="mobileToggle"
+      aria-label="Buka navigasi" aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Beranda</a>
+      <a href="#menu">Menu Kami</a>
+      <a href="#about">Tentang</a>
+    </nav>
+
+    <button class="cart-button" id="openCart">
+      <span>🛒</span> Pesanan
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow"><span class="status-dot"></span> FRESHLY BREWED, MADE WITH LOVE</span>
+
+        <h1>Temukan rasa,<br>nikmati <span>ceritanya.</span></h1>
+
+        <p>
+          Dari kopi pilihan hingga hidangan favoritmu,
+          hadirkan momen terbaik di setiap sajian Blue Haven.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#menu" class="primary-button">Jelajahi Menu <span>→</span></a>
+          <span class="hero-note">☕ Dibuat segar setiap hari</span>
+        </div>
+
+        <div class="hero-stats">
+          <div><strong>20+</strong><span>Pilihan menu</span></div>
+          <div><strong>100%</strong><span>Bahan berkualitas</span></div>
+          <div><strong>Fresh</strong><span>Setiap sajian</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img
+          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85"
+          alt="Kopi hangat yang disajikan di kafe"
+        >
+        <div class="floating-card">
+          <span class="floating-icon">✦</span>
+          <div>
+            <strong>Your daily comfort</strong>
+            <p>Secangkir kebahagiaan.</p>
+          </div>
+        </div>
+        <div class="hero-decoration"></div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow blue-eyebrow">OUR SPECIAL MENU</span>
+          <h2>Menu pilihan <span>kami.</span></h2>
+          <p>Temukan favoritmu dari pilihan makanan dan minuman terbaik.</p>
+        </div>
+        <div class="menu-search">
+          <span>⌕</span>
+          <input type="search" id="searchInput"
+            placeholder="Cari menu..." aria-label="Cari menu">
+        </div>
+      </div>
+
+      <div class="category-list" id="categoryList">
+        <button class="category-button active" data-category="Semua">Semua Menu</button>
+        <button class="category-button" data-category="Kopi">☕ Kopi</button>
+        <button class="category-button" data-category="Non-Kopi">🥤 Non-Kopi</button>
+        <button class="category-button" data-category="Makanan">🍽️ Makanan</button>
+        <button class="category-button" data-category="Dessert">🍰 Dessert</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+      <p class="empty-state" id="emptyState" hidden>
+        Menu tidak ditemukan. Coba kata kunci lain.
+      </p>
+    </section>
+
+    <section class="promo-section" id="about">
+      <div class="promo-content">
+        <span class="eyebrow">A LITTLE MOMENT FOR YOURSELF</span>
+        <h2>Lebih dari sekadar kopi.</h2>
+        <p>
+          Tempat untuk berhenti sejenak, berbagi cerita,
+          dan menikmati hal-hal sederhana yang berarti.
+        </p>
+        <a href="#menu" class="promo-link">Temukan menu favoritmu ↗</a>
+      </div>
+      <div class="promo-badge">
+        <span>BLUE</span>
+        <strong>HAVEN</strong>
+        <small>GOOD FOOD. GOOD MOOD.</small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#home" class="brand footer-brand">
+      <span class="brand-icon">B</span>
+      <span>BLUE HAVEN<span class="brand-sub">CAFE & KITCHEN</span></span>
+    </a>
+    <p>Temukan kenyamanan dalam setiap sajian.</p>
+    <span>© <span id="year"></span> Blue Haven Cafe.</span>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer"
+    role="dialog" aria-modal="true" aria-labelledby="cartTitle"
+    aria-hidden="true">
+
+    <div class="cart-header">
+      <div>
+        <span class="eyebrow blue-eyebrow">YOUR SELECTION</span>
+        <h2 id="cartTitle">Pesananmu</h2>
+      </div>
+      <button class="close-button" id="closeCart" aria-label="Tutup keranjang">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total pembayaran</span>
+        <strong id="cartTotal">Rp0</strong>
+      </div>
+      <button class="primary-button checkout-button" id="checkoutButton">
+        Buat Ringkasan Pesanan →
+      </button>
+      <p class="cart-disclaimer">
+        Demo website. Pesanan belum dikirim ke sistem kafe.
+      </p>
+    </div>
+  </aside>
+
+  <dialog class="order-dialog" id="orderDialog">
+    <div class="dialog-header">
+      <div>
+        <span class="eyebrow blue-eyebrow">ORDER SUMMARY</span>
+        <h2>Ringkasan pesanan</h2>
+      </div>
+      <button class="close-button" id="closeOrder" aria-label="Tutup ringkasan">×</button>
+    </div>
+    <div id="orderSummary"></div>
+    <button class="primary-button checkout-button" id="copyOrder">
+      Salin Ringkasan Pesanan
+    </button>
+    <p class="dialog-note" id="copyStatus" aria-live="polite"></p>
+  </dialog>
+
+</body>
+</html>
